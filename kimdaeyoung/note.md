@@ -78,4 +78,28 @@ public class Member {
 
 <br><br><br><br>
 
+# 섹션 2. 예제 도메인 모델
+
+## @GeneratedValue
+
+- jpa와 mysql 사용시 `@GeneratedValue(strategy = GenerationType.IDENTITY)` 사용하기
+    - default값은 `GenerationType.Auto` 이다
+    
+
+## 양방향 매핑시 외래키가 없는 쪽에 mappedBy 작성
+
+- 외래키를 가지고 있는 쪽이 연관관계의 주인이고 이 경우 mappedBy를 사용하면 안된다.
+- mappedBy를 통해 주인이 아님을 설정하고, 해당 속성 값은 연관관계 주인의 해당 속성 필드명과 일치해야 한다.
+- mappedBy를 사용하지 않으면 다대일 관계의 경우 중간 테이블이 생성되고, 일대일 관계의 경우 각각의 테이블에 서로를 참조하는 FK가 설정된다.
+- 데이터베이스에서 일대다, 다대일 관계에서 다쪽이 외래키를 가지고 있다.
+    - 이유는 데이터베이스에서는 컬렉션을 담을 수 없기 때문에 일쪽에서 여러 외래키를 가질 수 없다.
+- 연관관계의 주인 - 외래키 등록, 수정, 삭제 가능
+- 연관관계의 주인 아님 - 외래 키 읽기만 가능
+
+## 양방향 매핑시 toString을 주의하자!
+
+- 양방향 매핑 엔티티에서 toString을 사용할 때, 매핑한 다른 엔티티를 toString에 쓸 경우 순환 참조가 일어난다.
+
+<br><br><br><br>
+
 
