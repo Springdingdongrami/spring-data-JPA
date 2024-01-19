@@ -102,4 +102,21 @@ public class Member {
 
 <br><br><br><br>
 
+# 섹션 3. 공통 인터페이스 기능
+
+## `@EnableJpaRepositories(basePackages = “폴더 위치”)`
+
+- 스프링 부트 사용 시 `@SpringBootApplication` 위치 해당 패키지와 하위 패키지는 자동으로 인식함 → 이외 위치에 사용해야 할 때 사용하는 어노테이션
+
+ 
+
+## Jpa Interface 주요 메서드
+
+- save() : 새로운 엔티티는 저장, 이미 있는 엔티티는 병합
+- delete() : 엔티티 하나 삭제. 내부에서 EntityManager.remove() 호출
+- findById() : 엔티티 하나 조회. 내부에서 EntityManager.find() 호출
+- getOne() : 엔티티를 프록시로 조회. 내부에서 EntityManager.getReference() 호출
+- findAll() : 모든 엔티티 조회. 정렬이나 페이징 조건을 파라미터로 제공할 수 있다.
+
+<br><br><br><br>
 
